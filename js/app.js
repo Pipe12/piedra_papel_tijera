@@ -20,24 +20,12 @@ let choiceCpu = 'papel'
 
 function whoWin(choicePlayer, choiceCpu) {
   if(choicePlayer === 'piedra') {
-    if(choiceCpu === 'papel') {
-      console.log('CPU won!!!')
-    } else {
-      console.log('You won !!!')
-    }
+    return choiceCpu === 'papel' ? 'CPU won !!!' : 'You won !!!'
   }
   if(choicePlayer === 'papel') {
-    if(choiceCpu === 'tijera') {
-      console.log('CPU won!!!')
-    } else {
-      console.log('You won !!!')
-    }
+    return choiceCpu === 'tijera' ? 'CPU won !!!' : 'You won !!!'
   }
   if(choicePlayer === 'tijera') {
-    if(choiceCpu === 'piedra') {
-      console.log('CPU won!!!')
-    } else {
-      console.log('You won !!!')
-    }
+    return choiceCpu === 'piedra' ? 'CPU won !!!' : 'You won !!!'
   }
 }
