@@ -16,7 +16,8 @@ let winner
 
 // Solicitar eleccion del jugador
 function getPlayerChoice() {
-  return (prompt(`Escriba con cual quiere jugar PIEDRA, PAPEL o TIJERA ??`))
+  let choicePlayer = prompt(`Escriba con cual quiere jugar PIEDRA, PAPEL o TIJERA ??`)
+  return choicePlayer
 }
 
 // Generar eleccion CPU
@@ -33,7 +34,30 @@ function generateCpuChoice() {
 }
 
 //Evaluar quien gano.
-function whoWin(choicePlayer, choiceCpu) {
+//Usando una estructura switch
+function whoWinWithSwitch(choicePlayer, choiceCpu) {
+  
+  if(choicePlayer === choiceCpu) {
+    return `Empate`
+  }
+
+  switch(choicePlayer) {
+    case 'piedra': 
+    return choiceCpu === 'papel' ? 'CPU won !!!' : 'You won !!!'
+    break
+    case 'papel': 
+    return choiceCpu === 'tijera' ? 'CPU won !!!' : 'You won !!!'
+    break
+    case 'tijera': 
+    return choiceCpu === 'piedra' ? 'CPU won !!!' : 'You won !!!'
+    break
+    default:
+    return `${choicePlayer} no es una opcion valida.`
+  }
+}
+
+//Usando la estructura if
+function whoWinWithIf(choicePlayer, choiceCpu) {
   if(choicePlayer === choiceCpu) {
     return `Empate`
   }
@@ -48,11 +72,12 @@ function whoWin(choicePlayer, choiceCpu) {
   }
 }
 
+
 //Programa secuencial del juego de piedra, papel o tijera.
 do {
   choicePlayer = getPlayerChoice()
   choiceCpu = generateCpuChoice()
-  winner = whoWin(choicePlayer, choiceCpu)
+  winner = whoWinWithSwitch(choicePlayer, choiceCpu)
   console.log(winner)  
   playAgain = prompt(`Por favor digite 'y' si quiere seguir jugando o cualquier letra si desea terminar el juego.`)
 } while(playAgain === 'y')
