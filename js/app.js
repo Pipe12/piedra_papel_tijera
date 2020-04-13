@@ -81,4 +81,3 @@ do {
   console.log(winner)  
   playAgain = prompt(`Por favor digite 'y' si quiere seguir jugando o cualquier letra si desea terminar el juego.`)
 } while(playAgain === 'y')
-
